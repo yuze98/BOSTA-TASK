@@ -79,7 +79,7 @@ export default function TableDetails() {
     );
   };
   return (
-    <div>
+    <div style={{width:'68%'}}>
       <h3 align="right">تفاصيل الشحنة</h3>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">

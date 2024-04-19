@@ -11,8 +11,8 @@ export default function TrackScreen() {
     <div
       style={{
         paddingBottom: 100,
-        paddingRight: "10%",
-        paddingLeft: "10%",
+        paddingRight: "15%",
+        paddingLeft: "15%",
         paddingTop: "2%",
       }}
     >
@@ -23,15 +23,11 @@ export default function TrackScreen() {
         style={{
           flexDirection: "row",
           display: "flex",
-          justifyContent: "space-betwen",
+          justifyContent: "space-between",
         }}
       >
-        <div>
           <BoxAddress />
-        </div>
-        <div>
           <TableDetails />
-        </div>
       </div>
     </div>
   );

@@ -5,8 +5,9 @@ import { Button } from "@mui/material";
 
 export default function BoxAddress() {
   return (
-    <div>
-      <h3 align="right"> عنوان التسليم</h3>
+    <div style={{width:'30%'}}>
+      <h3 align='right'> عنوان التسليم</h3>
+
       <Box>
         <Grid container spacing={2}>
           <Grid item xs={12}>
@@ -55,7 +56,6 @@ const styles = {
     alignItems: "center",
     justifyContent: "space-between",
     height: "30%",
-    width: "40%",
   },
   coloredBox: {
     border: "1px solid #F1F1F1",
@@ -65,7 +65,6 @@ const styles = {
     display: "flex",
     justifyContent: "space-around",
     backgroundColor: "#F5F5F5",
-    width: "40%",
     height: "30%",
   },
   content: { flexDirection: "column", display: "flex" },
