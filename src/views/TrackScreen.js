@@ -26,8 +26,8 @@ export default function TrackScreen() {
           justifyContent: "space-between",
         }}
       >
-          <BoxAddress />
-          <TableDetails />
+        <BoxAddress />
+        <TableDetails />
       </div>
     </div>
   );

@@ -19,7 +19,8 @@ export default function TableDetails() {
 
   useEffect(() => {
     const fetchShipmentData = () => {
-      const url = `https://tracking.bosta.co/shipments/track/7234258`; //${inputValue}`;
+      if(!inputValue) return
+      const url = `https://tracking.bosta.co/shipments/track/${inputValue}`;
       fetchData(url)
         .then((data) => {
           const shippingData = ShippingData(data);
