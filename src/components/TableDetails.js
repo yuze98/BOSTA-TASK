@@ -24,7 +24,7 @@ export default function TableDetails() {
         .then((data) => {
           const shippingData = ShippingData(data);
           setShipmentData(shippingData);
-          setShippingDataValue(data);// sets it globally
+          setShippingDataValue(data); // sets it globally
           console.log("Fetched data:", shippingData);
         })
         .catch((error) => {
