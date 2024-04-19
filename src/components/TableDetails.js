@@ -8,17 +8,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import fetchData from "../api/Shipments";
 import { AppContext } from "../AppContext.js";
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-];
+import {ShippingData} from "../utils/ShipmentUtils.js";
 
 export default function TableDetails() {
   const [shipmentData, setShipmentData] = React.useState([]);
@@ -26,11 +16,13 @@ export default function TableDetails() {
 
   React.useEffect(() => {
     const fetchShipmentData = () => {
-      const url = `https://tracking.bosta.co/shipments/track/${inputValue}`;
+      const url = `https://tracking.bosta.co/shipments/track/7234258`//${inputValue}`;
       fetchData(url)
         .then((data) => {
-          setShipmentData(data);
-          console.log("Fetched data:", data);
+          const shipping_data = ShippingData(data)
+          setShipmentData(shipping_data);
+          console.log("Fetched data:", shipping_data);
+          
         })
         .catch((error) => {
           console.error("Error:", error);
@@ -38,36 +30,33 @@ export default function TableDetails() {
     };
     fetchShipmentData(inputValue);
   }, [inputValue]);
-
+  const headers = ['branch', 'date', 'time', 'details'];
+  
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
-            </TableRow>
+    <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <TableHead style={{ backgroundColor: "#F5F5F5" }}>
+        <TableRow>
+          {headers.map((header) => (
+            <TableCell align='center' key={header}>{header}</TableCell>
           ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        {shipmentData.map((row, index) => (
+          <TableRow
+            key={index}
+            sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+          >
+            {headers.map((header) => (
+              <TableCell align='center' key={header}>
+                {row[header]}
+              </TableCell>
+            ))}
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
+  </TableContainer>
   );
 }

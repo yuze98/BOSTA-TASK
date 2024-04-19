@@ -4,17 +4,10 @@ import TableDetails from '../components/TableDetails';
 
 export default function TrackScreen() {
 
-  const [orders, setOrders] = useState([]);
-
-
-  useEffect(() => {
-  
-    /* eslint-disable-next-line react-hooks/exhaustive-deps */
-  }, []);
-
   return (
     <div>
         <ToolBar/>
+        <div style={{paddingTop:100}}/>
         <TableDetails/>
     </div>
   );
