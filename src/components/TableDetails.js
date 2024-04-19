@@ -80,6 +80,7 @@ export default function TableDetails() {
   };
   return (
     <div>
+      <h3 align="right">تفاصيل الشحنة</h3>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead style={{ backgroundColor: "#F5F5F5" }}>

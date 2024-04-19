@@ -6,23 +6,32 @@ import { AppContext } from "../AppContext";
 import BoxAddress from "../components/BoxAddress";
 
 export default function TrackScreen() {
-  const {shippingDataValue} = useContext(AppContext)
+  const { shippingDataValue } = useContext(AppContext);
   return (
-    <div>
+    <div
+      style={{
+        paddingBottom: 100,
+        paddingRight: "10%",
+        paddingLeft: "10%",
+        paddingTop: "2%",
+      }}
+    >
       <ToolBar />
       <div style={{ paddingTop: 100 }} />
-      <div style={{width:'90%'}}>
-
-      {shippingDataValue?<BoxDetails/>:null}
-      </div>
-      <div>
-    <div style={{width:'40%',height:'30%'}}>
-      <BoxAddress/>
-    </div>
-      <div style={{ width: "40%" }}>
-        <h3 align="right">تفاصيل الشحنة</h3>
-        <TableDetails />
-      </div>
+      <div>{shippingDataValue ? <BoxDetails /> : null}</div>
+      <div
+        style={{
+          flexDirection: "row",
+          display: "flex",
+          justifyContent: "space-betwen",
+        }}
+      >
+        <div>
+          <BoxAddress />
+        </div>
+        <div>
+          <TableDetails />
+        </div>
       </div>
     </div>
   );

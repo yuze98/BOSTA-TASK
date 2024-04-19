@@ -23,7 +23,7 @@ export default function ToolBar() {
         <img
           src="https://avatars.githubusercontent.com/u/70472277?s=200&v=4"
           alt="Logo"
-          style={{ width: "50px", height: "50px", marginRight: "10px" }}
+          style={{ width: "80px", height: "80px", marginRight: "10px" }}
         />
       </div>
       <div style={{ paddingLeft: "10%" }}>
