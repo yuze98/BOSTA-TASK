@@ -3,10 +3,10 @@ export function ShippingData(data) {
   const branch_name = transit_data.filter(
     (el) => el.hub !== undefined && el.hub.includes("Hub")
   );
-  
+
   return transit_data.map((el) => {
     console.log(el.state);
-    const {date,time}=extractDateTime(el.timestamp)
+    const { date, time } = extractDateTime(el.timestamp);
     return {
       branch:
         branch_name[0] !== undefined
@@ -43,4 +43,85 @@ export function extractDateTime(timestamp) {
     date: formattedDate,
     time: `${formattedHours}:${formattedMinutes} ${period}`,
   };
+}
+
+export function getCurrentDate() {
+  // Create a new Date object
+  var today = new Date();
+
+  // Get hours, minutes, and seconds
+  var hours = today.getHours();
+  var minutes = today.getMinutes();
+
+  // Convert hours to AM/PM format
+  var ampm = hours >= 12 ? "pm" : "am";
+
+  // Convert hours from 24-hour to 12-hour format
+  hours = hours % 12;
+  hours = hours ? hours : 12; // The hour '0' should be '12'
+
+  // Add leading zero to minutes if less than 10
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+
+  // Get the month, day, and year
+  var month = today.getMonth() + 1; // Month starts from 0
+  var day = today.getDate();
+  var year = today.getFullYear();
+
+  // Get the day of the week
+  var days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  var dayOfWeek = days[today.getDay()];
+
+  // Construct the formatted date string
+  var formattedDate =
+    "at " +
+    hours +
+    ":" +
+    minutes +
+    " " +
+    ampm +
+    " " +
+    month +
+    "/" +
+    day +
+    "/" +
+    year +
+    " " +
+    dayOfWeek;
+
+  return formattedDate;
+}
+export function dateExtraction(dateString) {
+  const date = new Date(dateString);
+  // Month names array
+  const monthNames = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  // Get day, month, and year from the date object
+  const day = date.getDate();
+  const month = monthNames[date.getMonth()];
+  const year = date.getFullYear();
+
+  // Format the date
+  return `${day} ${month} ${year}`;
 }
