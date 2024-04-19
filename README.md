@@ -1,14 +1,18 @@
 # Starting BOSTA REACT APP
 
+![Starting BOSTA REACT APP](1.jpg)
+![Starting BOSTA REACT APP](2.jpg)
+![Starting BOSTA REACT APP](3.jpg)
+![Starting BOSTA REACT APP](4.jpg)
+
 ## Available Scripts
 
 In the project directory, you can run:
 
-
 ### `npm install`
 
- installing the dependencies and the node_modules first
- 
+Installing the dependencies and the node_modules first.
+
 ### `npm start`
 
 Runs the app in the development mode.\
