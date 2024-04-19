@@ -1,0 +1,7 @@
+{
+    "TICKET_CREATED": "تم انشاء الشحنة",
+    "PACKAGE_RECEIVED": " تم تسليم الشحنة",
+    "OUT_FOR_DELIVERY": " الشحنة خرجت للتسليم",
+    "DELIVERED": "تم التسليم",
+    "DELIVERED_TO_SENDER": "تم التسليم"
+}

@@ -44,7 +44,7 @@ export default function DropdownWithInput() {
           padding: "20px",
           border: `3px solid ${anchorEl ? "#ff0000" : "#ccc"}`,
           borderRadius: "10px",
-          width: 130,
+          width: 150,
           transition: "border-color 0.2s",
         }}
       />

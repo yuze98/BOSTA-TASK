@@ -4,8 +4,11 @@ import Grid from "@mui/material/Grid";
 import { AppContext } from "../AppContext";
 import CheckpointProgressBar from "./CheckpointProgressBar";
 import { dateExtraction, getCurrentDate } from "../utils/ShipmentUtils";
+import { useTranslation } from 'react-i18next';
 
 export default function BoxDetails() {
+  const { t } = useTranslation();
+
   const { inputValue, shippingDataValue } = useContext(AppContext);
   // const state = shippingDataValue.
   const { CurrentStatus, provider, PromisedDate } = shippingDataValue;
@@ -32,6 +35,10 @@ export default function BoxDetails() {
       color: "green",
       progress: 100,
     },
+    DELIVERED_TO_SENDER: {
+      color: "green",
+      progress: 100,
+    },
   };
   const date = dateExtraction(PromisedDate);
   useEffect(() => {
@@ -49,7 +56,9 @@ export default function BoxDetails() {
               </span>
               <h4
                 style={{
-                  color: checkponts_progress[CurrentStatus.state].color,
+                  color: checkponts_progress[CurrentStatus.state]
+                    ? checkponts_progress[CurrentStatus.state].color
+                    : "black",
                 }}
               >
                 {" "}
@@ -73,7 +82,11 @@ export default function BoxDetails() {
         <Grid item xs={12}>
           <Box style={styles.root}>
             <CheckpointProgressBar
-              progress={checkponts_progress[CurrentStatus.state].progress}
+              progress={
+                checkponts_progress[CurrentStatus.state]
+                  ? checkponts_progress[CurrentStatus.state].progress
+                  : 0
+              }
               checkpoints={checkpoints}
             />
           </Box>

@@ -1,0 +1,7 @@
+{
+  "TICKET_CREATED": "Ticket Created",
+  "PACKAGE_RECEIVED": "Package Received",
+  "OUT_FOR_DELIVERY": "Out for Delivery",
+  "DELIVERED": "Delivered",
+  "DELIVERED_TO_SENDER": "Delivered to Sender"
+}
